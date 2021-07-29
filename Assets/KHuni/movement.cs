@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
-    public Vector3 nowPos;
-    public Vector3 prevPos;
+    
 
     //마우스 컨트롤 X,Y
 
@@ -18,6 +17,6 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+         
     }   
 }
