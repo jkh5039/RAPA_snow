@@ -7,7 +7,7 @@ public class Player_snow : MonoBehaviour
     // 눈덩이 공장
     public GameObject snowFactory;
     public GameObject snowPos;
-    float ClickTime;
+    float ClickTime = 0f;
     // 날아가는 방향, fix라 상관없음
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,10 @@ public class Player_snow : MonoBehaviour
         {
 
             //마우스를 뗴기전까지 누른 지속시간을 잰다
+            while (Input.GetButtonUp("Fire1"))
+            {
+                ClickTime = Time.deltaTime;
+            }
             //ClickTime = Time.fixedDeltaTime; ??????
 
             //클릭버튼 누른 시간을 변수 x로 가져온다
