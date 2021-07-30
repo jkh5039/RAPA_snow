@@ -7,6 +7,7 @@ public class Player_snow : MonoBehaviour
     // 눈덩이 공장
     public GameObject snowFactory;
     public GameObject snowPos;
+    float ClickTime;
     // 날아가는 방향, fix라 상관없음
     // Start is called before the first frame update
     void Start()
@@ -20,14 +21,14 @@ public class Player_snow : MonoBehaviour
         if (Input.GetButtonDown("Fire1")==true) //왼쪽마우스 누르면
         {
 
-            //만약 일정시간동안누르면
-            
-            //그 시간을 가져온다
-            //클릭버튼 누른 시간을 가져온다
-            //만약 x초 이상누른다면 x초로 처리한다
-            //eg(1+ 가중치w * 시간)
-            //몇초 후에 눈덩이가 destroy가된다
-            
+            //마우스를 뗴기전까지 누른 지속시간을 잰다
+            //ClickTime = Time.fixedDeltaTime; ??????
+
+            //클릭버튼 누른 시간을 변수 x로 가져온다
+            //만약 클릭시간이 x초 초과된다면 x초로 처리한다 
+            // eg(기본사거리Y+ 가중치w * 시간)
+            //몇초 후에 눈덩이가 destroy가된다 (누른시간이 길면길수록 거리가 멀다)
+
             GameObject snow = Instantiate(snowFactory); //눈덩이를 만든다.
             snow.transform.position = snowPos.transform.position; //만든 눈덩이를 팔에다 둔다
         }
