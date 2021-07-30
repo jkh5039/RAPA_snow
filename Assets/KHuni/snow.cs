@@ -5,11 +5,14 @@ using UnityEngine;
 public class snow : MonoBehaviour
 {
     //´«µ¢ÀÌ ¼Óµµ
-    public float speed = 6;
+    public float speed = 6.0f;
+    //´«µ¢ÀÌ »çÁ¤°Å¸® 
+    public float distance = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //´«µ¢ÀÌ Áö¼Ó½Ã°£
+        float LiveTime = Time.deltaTime * distance;
     }
 
     // Update is called once per frame
