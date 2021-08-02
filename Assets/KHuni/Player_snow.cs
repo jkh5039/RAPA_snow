@@ -36,10 +36,10 @@ public class Player_snow : MonoBehaviour
 
             GameObject snow = Instantiate(snowFactory); //공장에서 눈덩이만듬
             snow.transform.position = snowPos.transform.position; //���� �����̸� �ȿ��� �д�
-            
-            float DestroyTime = 2+ 0.6f*ClickTime;
+
+            ClickTime = Time.deltaTime;
             //일정시간 지난후 snow를 파괴한다
-            Destroy(snow, DestroyTime);
+            Destroy(snow, ClickTime);
             ClickTime = 0;
 
 
