@@ -16,6 +16,6 @@ public class Snow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position += transform.forward *speed* Time.deltaTime;
+        gameObject.transform.position += -transform.right *speed* Time.deltaTime;
     }
 }

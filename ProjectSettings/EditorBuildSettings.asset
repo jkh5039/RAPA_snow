@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/KHuni/snowballing_game.unity
+    guid: 85ef3e483e145a94e9cf71956b81cd24
   m_configObjects: {}

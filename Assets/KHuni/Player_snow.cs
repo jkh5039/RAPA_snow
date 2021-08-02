@@ -4,48 +4,55 @@ using UnityEngine;
 
 public class Player_snow : MonoBehaviour
 {
-    // ´«µ¢ÀÌ °øÀå
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public GameObject snowFactory;
     public GameObject snowPos;
-    float ClickTime;
-    // ³¯¾Æ°¡´Â ¹æÇâ, fix¶ó »ó°ü¾øÀ½
+    float ClickTime = 0f;
+    // ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, fixï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")==true) //¿ŞÂÊ¸¶¿ì½º ´©¸£¸é
+        if (Input.GetButtonDown("Fire1")==true) //ë°œì‚¬ë²„íŠ¼í´ë¦­
         {
+
             
             //¸¶¿ì½º¸¦ ‹ó±âÀü±îÁö ´©¸¥ Áö¼Ó½Ã°£À» Àé´Ù111
             while (Input.GetButtonUp("Fire1") != true)
             {
                 float ClickTime = Time.deltaTime;
-            }
-            //ClickTime = Time.fixedDeltaTime; ??????
 
-            //Å¬¸¯¹öÆ° ´©¸¥ ½Ã°£À» º¯¼ö clicktimeÀ¸·Î °¡Á®¿Â´Ù
-            //¸¸¾à Å¬¸¯½Ã°£ÀÌ xÃÊ ÃÊ°úµÈ´Ù¸é xÃÊ·Î Ã³¸®ÇÑ´Ù 
+            //í´ë¦­ì‹œê°„ì—ë¹„ë¡€í•œ ì‚¬ê±°ë¦¬ì¦ê°€
+            while (Input.GetButtonUp("Fire1") == true)
+            {
+                ClickTime = Time.deltaTime;
+ 
+            }
+            ////ClickTime = Time.fixedDeltaTime; ??????
+
+            //í´ë¦­ì‹œê°„ì´ 3ì´ˆë³´ë‹¤ ê¸¸ë©´ 3ì´ˆë¡œ ì²˜ë¦¬
             if (ClickTime > 3)
             {
                 ClickTime = 3;
             }
 
-            GameObject snow = Instantiate(snowFactory); //´«µ¢ÀÌ¸¦ ¸¸µç´Ù.
-            snow.transform.position = snowPos.transform.position; //¸¸µç ´«µ¢ÀÌ¸¦ ÆÈ¿¡´Ù µĞ´Ù
-            // eg(±âº»»ç°Å¸®Y+ °¡ÁßÄ¡w * ½Ã°£)
-            float DestroyTime = 1+ 0.6f*ClickTime;
-            //¸îÃÊ ÈÄ¿¡ ´«µ¢ÀÌ°¡ destroy°¡µÈ´Ù (´©¸¥½Ã°£ÀÌ ±æ¸é±æ¼ö·Ï °Å¸®°¡ ¸Ö´Ù)
-            Destroy(snow, DestroyTime);
-            
-            
+            GameObject snow = Instantiate(snowFactory); //ê³µì¥ì—ì„œ ëˆˆë©ì´ë§Œë“¬
+            snow.transform.position = snowPos.transform.position; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½Ğ´ï¿½
 
-            //GameObject snow = Instantiate(snowFactory); //´«µ¢ÀÌ¸¦ ¸¸µç´Ù.
-            //snow.transform.position = snowPos.transform.position; //¸¸µç ´«µ¢ÀÌ¸¦ ÆÈ¿¡´Ù µĞ´Ù
+            ClickTime = Time.deltaTime;
+            //ì¼ì •ì‹œê°„ ì§€ë‚œí›„ snowë¥¼ íŒŒê´´í•œë‹¤
+            Destroy(snow, ClickTime);
+            ClickTime = 0;
+
+
+
+            //GameObject snow = Instantiate(snowFactory); //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+            //snow.transform.position = snowPos.transform.position; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½Ğ´ï¿½
         }
     }
 }

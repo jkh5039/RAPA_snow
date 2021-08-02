@@ -10,6 +10,8 @@ public class Player_move : MonoBehaviour
     Camera cam;
     //충돌하고 싶지않은 Layer
     public LayerMask layer;
+    public GameObject snowFactory; 
+    public GameObject snowPos;
 
     bool isPlayerClick;
 
@@ -35,6 +37,17 @@ public class Player_move : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
+            //만약에 isPlayerClick 참이라면
+            if (isPlayerClick == true)
+            {
+                float ClickTime = Time.deltaTime;
+                //총알발사
+                GameObject snow = Instantiate(snowFactory);
+                snow.transform.position = snowPos.transform.position;
+                Destroy(snow, 5);
+                ClickTime = 0;
+            }
+            
             isPlayerClick = false;
         }
 
