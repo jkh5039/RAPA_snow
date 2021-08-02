@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1225849115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player_hand
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 1450000918}
   - component: {fileID: 1450000922}
   - component: {fileID: 1450000923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450000917}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4df146c4a7296e647bcc6d13855704fd, type: 3}
   m_Name: 
@@ -363,7 +363,9 @@ MonoBehaviour:
   camObj: {fileID: 228676546}
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  snowFactory: {fileID: 475945636849890107, guid: 72cdbee9f71207847b4d2b73b2ea52e1, type: 3}
+  snowPos: {fileID: 1225849114}
 --- !u!1 &2021248013
 GameObject:
   m_ObjectHideFlags: 0
