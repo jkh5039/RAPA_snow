@@ -21,10 +21,10 @@ public class Player_snow : MonoBehaviour
         if (Input.GetButtonDown("Fire1")==true) //왼쪽마우스 누르면
         {
             
-            //마우스를 뗴기전까지 누른 지속시간을 잰다
-            while (Input.GetButton("Fire1") == true)
+            //마우스를 뗴기전까지 누른 지속시간을 잰다111
+            while (Input.GetButtonUp("Fire1") != true)
             {
-                float ClickTime = Time.fixedDeltaTime;
+                float ClickTime = Time.deltaTime;
             }
             //ClickTime = Time.fixedDeltaTime; ??????
 
