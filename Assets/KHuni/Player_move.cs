@@ -44,7 +44,7 @@ public class Player_move : MonoBehaviour
                 //ÃÑ¾Ë¹ß»ç
                 GameObject snow = Instantiate(snowFactory);
                 snow.transform.position = snowPos.transform.position;
-                Destroy(snow, 5);
+                Destroy(snow, 10);
                 ClickTime = 0;
             }
             

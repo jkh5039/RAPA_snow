@@ -19,6 +19,6 @@ public class snow : MonoBehaviour
     void Update()
     {
         //총알 날라가는방향, 회전걸었더니 그 방향으로간다 
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }
