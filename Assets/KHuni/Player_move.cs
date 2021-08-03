@@ -57,7 +57,8 @@ public class Player_move : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitInfo, 1000, ~layer))
             {
-                transform.position = hitInfo.point;
+                Vector3 vec = new Vector3(hitInfo.point.x, hitInfo.point.y + 1.8f, hitInfo.point.z);
+                transform.position = vec;
             }
         }
     }
