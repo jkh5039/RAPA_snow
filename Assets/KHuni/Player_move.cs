@@ -13,7 +13,7 @@ public class Player_move : MonoBehaviour
     public GameObject snowFactory; 
     public GameObject snowPos;
 
-    bool isPlayerClick;
+    public bool isPlayerClick;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,9 @@ public class Player_move : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
-                isPlayerClick = true;
+                //isPlayerClick = true;
+                Player_move pm = hitInfo.transform.GetComponent<Player_move>();
+                pm.isPlayerClick = true;
             }
         }
         if (Input.GetButtonUp("Fire1"))

@@ -19,25 +19,37 @@ public class samplebody : MonoBehaviour
 
     void HpDamage(int amount)
     {
-        hp -= amount;
-        
-        switch(hp)
+        //hp -= amount;
+
+        //switch(hp)
+        //{
+        //    case 0:
+        //        Stun();
+        //        break;
+        //    case 1:
+        //        Die();
+
+        //        break;
+        //    default:
+        //        break;
+        //
+        if (hp == 1)
         {
-            case 0:
-                Stun();
-                break;
-            case 1:
-                Die();
-                
-                break;
-            default:
-                break;
+            Stun();
         }
+        else if (hp == 0)
+        {
+            Die();
+        }
+       
+        
     }
 
     void Stun()
     {
-        //입력못받게하는거
+        //입력못받게한다
+        //
+        
     }
 
     void Die()
