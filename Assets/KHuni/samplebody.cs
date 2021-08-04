@@ -59,7 +59,7 @@ public class samplebody : MonoBehaviour
     }
     void StunAnimation()
     {
-
+        //스턴애니메이션
     }
 
     void Die()
@@ -68,12 +68,34 @@ public class samplebody : MonoBehaviour
         //파괴하기
     }
 
-    private void OnTriggerEnter(Collider other) //총알과 충돌시 알림
+    //private void OnCollisionEnter(Collision collision) //총알과 충돌시 알림
+    //{
+    //    if (other.gameObject.name.Contains("bullet") == false)
+    //    {
+    //        print("충돌");
+
+    //        HpDamage(1);
+    //    }
+    //}
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.Contains("bullet") == false)
         {
             print("충돌");
+
             HpDamage(1);
+            Destroy(other.gameObject);
         }
     }
+
+
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.name.Contains("bullet") == false)
+    //    {
+    //        print("충돌");
+    //        HpDamage(1);
+    //    }
+    //}
 }
