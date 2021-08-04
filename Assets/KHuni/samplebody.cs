@@ -5,6 +5,9 @@ using UnityEngine;
 public class samplebody : MonoBehaviour
 {
     public int hp;
+    public float stuntime = 3.0f;
+    public bool isStun;
+    public float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,25 +17,29 @@ public class samplebody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //입력못받게한다
+        if (isStun)
+        {
+            timer = Time.deltaTime;
+            if (stuntime <= timer)
+                StunAnimationStop();
+            return;
+        }
+        //3초동안
+        //입력을 받을수 있다
+    }
+
+    void StunAnimationStop()
+    {
+        timer = 0f;
+        isStun = false;
     }
 
     void HpDamage(int amount)
     {
-        //hp -= amount;
+        hp -= amount;
 
-        //switch(hp)
-        //{
-        //    case 0:
-        //        Stun();
-        //        break;
-        //    case 1:
-        //        Die();
-
-        //        break;
-        //    default:
-        //        break;
-        //
+       
         if (hp == 1)
         {
             Stun();
@@ -41,19 +48,23 @@ public class samplebody : MonoBehaviour
         {
             Die();
         }
-       
-        
     }
 
     void Stun()
     {
-        //입력못받게한다
-        //
+        isStun = true;
+        StunAnimation();
+
         
+    }
+    void StunAnimation()
+    {
+
     }
 
     void Die()
     {
+        Destroy(gameObject, 2f); //anmation event 검색해본다
         //파괴하기
     }
 
