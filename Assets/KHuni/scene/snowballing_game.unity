@@ -227,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4609911426433863738, guid: 998d9d64fde71674aa0baa171585eb2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.25
+      value: 21.3
       objectReference: {fileID: 0}
     - target: {fileID: 4609911426433863738, guid: 998d9d64fde71674aa0baa171585eb2f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -235,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4609911426433863738, guid: 998d9d64fde71674aa0baa171585eb2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.98
+      value: -42.59
       objectReference: {fileID: 0}
     - target: {fileID: 4609911426433863738, guid: 998d9d64fde71674aa0baa171585eb2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -406,7 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a13fd2eecaacd4288535043cffa211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  makeSnow: {fileID: 3645621940787533382, guid: 0b3fdbabac2e0d7418b4e3d35ef2375b, type: 3}
 --- !u!1 &1009786058
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,8 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdafff89d44821b469f4b74181bdc45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  enemyFire: {fileID: 1582374985}
 --- !u!65 &1009786060
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -706,6 +703,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4609911426810646641, guid: 998d9d64fde71674aa0baa171585eb2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609911426810646641, guid: 998d9d64fde71674aa0baa171585eb2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609911426810646641, guid: 998d9d64fde71674aa0baa171585eb2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 998d9d64fde71674aa0baa171585eb2f, type: 3}
 --- !u!1 &1582374984
@@ -737,7 +746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a13fd2eecaacd4288535043cffa211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  makeSnow: {fileID: 3645621940787533382, guid: 0b3fdbabac2e0d7418b4e3d35ef2375b, type: 3}
 --- !u!4 &1582374986
 Transform:
   m_ObjectHideFlags: 0
@@ -784,8 +792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdafff89d44821b469f4b74181bdc45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  enemyFire: {fileID: 892907999}
 --- !u!65 &1656985106
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -892,7 +898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a13fd2eecaacd4288535043cffa211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  makeSnow: {fileID: 3645621940787533382, guid: 0b3fdbabac2e0d7418b4e3d35ef2375b, type: 3}
 --- !u!4 &1681824257
 Transform:
   m_ObjectHideFlags: 0
@@ -939,8 +944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdafff89d44821b469f4b74181bdc45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  enemyFire: {fileID: 1681824256}
 --- !u!65 &1722529060
 BoxCollider:
   m_ObjectHideFlags: 0
