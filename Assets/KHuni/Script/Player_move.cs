@@ -13,6 +13,8 @@ public class Player_move : MonoBehaviour
     public GameObject snowFactory; 
     public GameObject snowPos;
 
+    public Animator animator;
+
     public bool isPlayerClick;
 
     // Start is called before the first frame update
@@ -20,7 +22,8 @@ public class Player_move : MonoBehaviour
     {
         cam = camObj.GetComponent<Camera>();
     }
-
+    float currTime = 0f;
+    float motionTime = 1.5f;
     // Update is called once per frame
     void Update()
     {
@@ -35,22 +38,33 @@ public class Player_move : MonoBehaviour
                 //isPlayerClick = true;
                 Player_move pm = hitInfo.transform.GetComponent<Player_move>();
                 pm.isPlayerClick = true;
+                pm.animator.SetBool("Run", true);
             }
         }
-        if (Input.GetButtonUp("Fire1"))
+
+        currTime += Time.deltaTime;
+
+        if (Input.GetButtonUp("Fire1") && isPlayerClick)
         {
             //만약에 isPlayerClick 참이라면
-            if (isPlayerClick == true)
+            //if (isPlayerClick == true)
             {
-                float ClickTime = Time.deltaTime;
+                //float ClickTime = Time.deltaTime;
                 //총알발사
                 GameObject snow = Instantiate(snowFactory);
                 snow.transform.position = snowPos.transform.position;
                 Destroy(snow, 10);
-                ClickTime = 0;
+                //ClickTime = 0;
             }
-            
+            animator.SetBool("Run", false);
+            animator.SetBool("Attack",true);
             isPlayerClick = false;
+        }
+
+        if (currTime > motionTime)
+        {
+            animator.SetBool("Attack", false);
+            currTime = 0f;
         }
 
         if (isPlayerClick)
