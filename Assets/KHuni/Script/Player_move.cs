@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Player_move : MonoBehaviour
 {
+    //내가 공격을 당할 때 일단 적어둠.... //0809
+    public int hp=2;
+    public float stuntime = 3.0f;
+    public float wakeuptime = 3.0f;
+    public bool isStun;
+    public float timer;
+    public Animator animator;
+
+
+
+
     //Camera  게임오브젝트
     public GameObject camObj;
     //Camera 컴포넌트
@@ -12,8 +23,7 @@ public class Player_move : MonoBehaviour
     public LayerMask layer;
     public GameObject snowFactory; 
     public GameObject snowPos;
-
-    public Animator animator;
+    
 
     public bool isPlayerClick;
 
@@ -21,12 +31,24 @@ public class Player_move : MonoBehaviour
     void Start()
     {
         cam = camObj.GetComponent<Camera>();
+        //int hp = 2;
     }
     float currTime = 0f;
     float motionTime = 1.5f;
     // Update is called once per frame
     void Update()
     {
+        //if (isStun)   //새로적은거
+        //{
+        //    float timer = 0f;
+        //    timer = Time.deltaTime;
+        //    if (stuntime <= timer)
+        //        StunAnimationStop();
+        //    return;
+        //}
+
+
+
         //화면 마우스 좌표에서 발사되는 Ray를 만든다.
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
@@ -78,4 +100,81 @@ public class Player_move : MonoBehaviour
             }
         }
     }
+
+    //#region 0809새로적은것들 kc 함
+
+    //void StunAnimationStop()  //samplebody에서 아래 쭉 까지 가져옴
+    //{
+    //    timer = 0f;
+    //    isStun = false;
+    //}
+
+    //void HpDamage(int amount)
+    //{
+    //    hp -= amount;
+
+
+    //    if (hp == 1)
+    //    {
+    //        Stun();
+    //    }
+    //    else if (hp == 0)
+    //    {
+    //        Die();
+    //    }
+    //}
+
+    //void Stun()
+    //{
+    //    isStun = true;
+    //    StunAnimation();
+
+
+    //}
+    //void StunAnimation()
+    //{
+    //    animator.SetBool("Stun", true);
+    //    //3초뒤 일어선다
+    //    float nowtime = 0;
+    //    nowtime += Time.deltaTime;
+    //    if (nowtime >= wakeuptime)
+    //    {
+    //        //스턴 애니메이션
+    //        animator.SetBool("Stun", false);
+    //        nowtime = 0;
+    //    }
+
+
+    //}
+
+
+
+    //void Die()
+    //{
+    //    animator.SetBool("Die", true);
+    //    Destroy(gameObject, 2f); //anmation event 검색해본다
+    //    //파괴하기
+    //}
+    //#region 연습장
+    ////private void OnCollisionEnter(Collision collision) //총알과 충돌시 알림
+    ////{
+    ////    if (other.gameObject.name.Contains("bullet") == false)
+    ////    {
+    ////        print("충돌");
+
+    ////        HpDamage(1);
+    ////    }
+    ////}
+    //#endregion
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.name.Contains("bullet") == false) //bullet 이름을 바꿔본다,,,
+    //    {
+    //        print("충돌");
+
+    //        HpDamage(1);
+    //        Destroy(other.gameObject);
+    //    }
+    //}
+    //#endregion
 }
