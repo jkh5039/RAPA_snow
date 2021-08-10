@@ -16,7 +16,17 @@ public class Snow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position += transform.forward *speed* Time.deltaTime;
+        gameObject.transform.position += transform.right *speed* Time.deltaTime;
+        gameObject.transform.localScale -= Vector3.one * 0.002f;
+        if (gameObject.transform.localScale.x <0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+        //상대방의 체력을 닳게 한다.(상대방 피코드가 필요)
     }
 
 }

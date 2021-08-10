@@ -89,7 +89,7 @@ public class EnemyMove : MonoBehaviour
         }
 
 
-        //if(Input.GetKeyDown(KeyCode.Alpha0))
+        //if (Input.GetKeyDown(KeyCode.Alpha0))
         //{
         //    isHit = true;
         //    timer = 0;
