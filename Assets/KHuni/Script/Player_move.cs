@@ -72,7 +72,7 @@ public class Player_move : MonoBehaviour
         {
             GameObject snow = Instantiate(snowFactory);
             snow.transform.position = snowPos.transform.position;
-            Destroy(snow, 10);
+            Destroy(snow, 1.5f);
             animator.SetBool("Run", false);
             animator.SetBool("Attack", true);
             isPlayerClick = false;
