@@ -12,9 +12,6 @@ public class Player_move : MonoBehaviour
     public float timer;
     public Animator animator;
 
-
-
-
     //Camera  게임오브젝트
     public GameObject camObj;
     //Camera 컴포넌트
@@ -30,24 +27,27 @@ public class Player_move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam = camObj.GetComponent<Camera>();
+        cam = Camera.main;
         //int hp = 2;
     }
     float currTime = 0f;
     float motionTime = 1.5f;
+    float stunTimer = 0f;
+    float stunTime = 2f;
     // Update is called once per frame
     void Update()
     {
-        //if (isStun)   //새로적은거
-        //{
-        //    float timer = 0f;
-        //    timer = Time.deltaTime;
-        //    if (stuntime <= timer)
-        //        StunAnimationStop();
-        //    return;
-        //}
-
-
+        if (isStun)   //새로적은거
+        {
+            stunTimer += Time.deltaTime;
+            if (stunTimer >= stunTime)
+            {
+                stunTimer = 0f;
+                isStun = false;
+                animator.SetTrigger("Stun");
+            }
+            return;
+        }
 
         //화면 마우스 좌표에서 발사되는 Ray를 만든다.
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -57,6 +57,8 @@ public class Player_move : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
+                //isPlayerClick = true;
+                //animator.SetBool("Run", true);
                 //isPlayerClick = true;
                 Player_move pm = hitInfo.transform.GetComponent<Player_move>();
                 pm.isPlayerClick = true;
@@ -68,18 +70,11 @@ public class Player_move : MonoBehaviour
 
         if (Input.GetButtonUp("Fire1") && isPlayerClick)
         {
-            //만약에 isPlayerClick 참이라면
-            //if (isPlayerClick == true)
-            {
-                //float ClickTime = Time.deltaTime;
-                //총알발사
-                GameObject snow = Instantiate(snowFactory);
-                snow.transform.position = snowPos.transform.position;
-                Destroy(snow, 10);
-                //ClickTime = 0;
-            }
+            GameObject snow = Instantiate(snowFactory);
+            snow.transform.position = snowPos.transform.position;
+            Destroy(snow, 10);
             animator.SetBool("Run", false);
-            animator.SetBool("Attack",true);
+            animator.SetBool("Attack", true);
             isPlayerClick = false;
         }
 
@@ -102,59 +97,56 @@ public class Player_move : MonoBehaviour
     }
 
     //#region 0809새로적은것들 kc 함
-
     //void StunAnimationStop()  //samplebody에서 아래 쭉 까지 가져옴
     //{
     //    timer = 0f;
     //    isStun = false;
     //}
 
-    //void HpDamage(int amount)
-    //{
-    //    hp -= amount;
+    void HpDamage(int amount)
+    {
+        animator.SetBool("Run", false);
 
+        hp -= amount;
+        print("Damage Hp : " + hp);
 
-    //    if (hp == 1)
-    //    {
-    //        Stun();
-    //    }
-    //    else if (hp == 0)
-    //    {
-    //        Die();
-    //    }
-    //}
+        if (hp == 1)
+        {
+            Stun();
+        }
+        else if (hp == 0)
+        {
+            Die();
+        }
+    }
+    void Stun()
+    {
+        print("Stun");
 
-    //void Stun()
-    //{
-    //    isStun = true;
-    //    StunAnimation();
-
-
-    //}
-    //void StunAnimation()
-    //{
-    //    animator.SetBool("Stun", true);
-    //    //3초뒤 일어선다
-    //    float nowtime = 0;
-    //    nowtime += Time.deltaTime;
-    //    if (nowtime >= wakeuptime)
-    //    {
-    //        //스턴 애니메이션
-    //        animator.SetBool("Stun", false);
-    //        nowtime = 0;
-    //    }
-
-
-    //}
-
-
-
-    //void Die()
-    //{
-    //    animator.SetBool("Die", true);
-    //    Destroy(gameObject, 2f); //anmation event 검색해본다
-    //    //파괴하기
-    //}
+        animator.SetTrigger("Stun");
+        isStun = true;
+        //StunAnimation();
+    }
+    void StunAnimation()
+    {
+        print("StunAnim");
+        //3초뒤 일어선다(원상태)
+        float nowtime = 0;
+        nowtime += Time.deltaTime;
+        if (nowtime >= wakeuptime)
+        {
+            //스턴 애니메이션
+            animator.SetBool("Stun", false);
+            nowtime = 0;
+        }
+    }
+    void Die()
+    {
+        print("Die");
+        animator.SetTrigger("Die");
+        Destroy(gameObject, 4f); //anmation event 검색해본다
+        //파괴하기
+    }
     //#region 연습장
     ////private void OnCollisionEnter(Collision collision) //총알과 충돌시 알림
     ////{
@@ -166,15 +158,16 @@ public class Player_move : MonoBehaviour
     ////    }
     ////}
     //#endregion
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.name.Contains("bullet") == false) //bullet 이름을 바꿔본다,,,
-    //    {
-    //        print("충돌");
 
-    //        HpDamage(1);
-    //        Destroy(other.gameObject);
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Snow")) //bullet 이름을 바꿔본다,,,
+        {
+            print("충돌");
+
+            HpDamage(1);
+            Destroy(other.gameObject);
+        }
+    }
     //#endregion
 }

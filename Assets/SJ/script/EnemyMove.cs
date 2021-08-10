@@ -15,6 +15,7 @@ public class EnemyMove : MonoBehaviour
 
     public EnemyFire enemyFire;
 
+    public bool moveStop;
     bool isMove = true;
     bool isHit = false;
     public Animator ani;
@@ -68,7 +69,7 @@ public class EnemyMove : MonoBehaviour
                 }
             }
 
-            if (isMove)
+            if (isMove && moveStop)
             {
                 //좌우로 움직이게 한다.
                 gameObject.transform.position += dirR * Time.deltaTime * speed;
