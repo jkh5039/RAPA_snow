@@ -22,7 +22,7 @@ public class EnemyFire : MonoBehaviour
     public void Shoot()
     {
         //2.눈을 생성한다.(던지는 부분은 Snow에 넣음)
-        GameObject pos =Instantiate(makeSnow);
+        GameObject pos = Instantiate(makeSnow);
         pos.transform.position = gameObject.transform.position;
 
 
