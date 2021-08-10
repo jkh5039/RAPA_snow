@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class samplebody : MonoBehaviour
 {
+    //이 script는 enemy 한테 끼워 넣는다????????
     public int hp;
     public float stuntime = 3.0f;
     public bool isStun;
     public float timer;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
