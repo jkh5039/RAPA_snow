@@ -75,6 +75,18 @@ public class EnemyMove : MonoBehaviour
                 gameObject.transform.position += dirR * Time.deltaTime * speed;
                 //앞뒤로 움직이게 한다.
                 gameObject.transform.position += dirF * Time.deltaTime * speed;
+
+                //만약에 -36 < z < -9.7
+                if(transform.position.z < -36f || transform.position.z > -9.7f)
+                {
+                    dirF = -dirF;
+                }
+                //만약에 -18 < x < 5
+                if (transform.position.x < -18f || transform.position.x > 5f)
+                {
+                    dirR = -dirR;
+                }
+
             }
         }
 
