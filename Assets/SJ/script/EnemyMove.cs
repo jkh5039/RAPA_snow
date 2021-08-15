@@ -19,6 +19,7 @@ public class EnemyMove : MonoBehaviour
     bool isMove = true;
     bool isHit = false;
     public Animator ani;
+    int hit = 3;
 
     //속성 붙이는것은 한번만 붙여준다. 속성을 가지고 있는 변수에 속성을 붙이게 되면 중복선언을 하게 되는것이기 떄문.
     // Start is called before the first frame update
@@ -128,6 +129,12 @@ public class EnemyMove : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        hit = hit-1;
+        if (hit == 0)
+        {
+            isHit = true;
+            ani.SetTrigger("die");
+        }
         isHit = true;
         timer = 0;
         ani.SetTrigger("Falling");
@@ -136,7 +143,7 @@ public class EnemyMove : MonoBehaviour
         //    //쓰러지는 애니메이션이 진행되고 쓰러지면 멈춘다.
         //    isMove = false;
         //    //에너미의 포지션이 멈춘다.
-
         //
+        
     }
 }

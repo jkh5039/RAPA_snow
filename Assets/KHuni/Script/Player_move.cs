@@ -18,6 +18,7 @@ public class Player_move : MonoBehaviour
     Camera cam;
     //충돌하고 싶지않은 Layer
     public LayerMask layer;
+    public LayerMask layer1;
     public GameObject snowFactory; 
     public GameObject snowPos;
     
@@ -88,7 +89,7 @@ public class Player_move : MonoBehaviour
         {
             //Ray발사!!
 
-            if (Physics.Raycast(ray, out hitInfo, 1000, ~layer))
+            if (Physics.Raycast(ray, out hitInfo, 1000, layer1))
             {
                 Vector3 vec = new Vector3(hitInfo.point.x, hitInfo.point.y + 1.7f, hitInfo.point.z);
                 transform.position = vec;
