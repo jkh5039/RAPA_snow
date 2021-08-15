@@ -88,6 +88,14 @@ public class EnemyMove : MonoBehaviour
                 ani.SetTrigger("idle");
             }
         }
+            if (transform.position.z < -36f || transform.position.z > -9.7f)
+            {
+                dirF = -dirF;
+            }
+            if (transform.position.x < -18f || transform.position.x > 5f)
+            {
+                dirR = -dirR;
+            }
 
 
         //if (Input.GetKeyDown(KeyCode.Alpha0))
