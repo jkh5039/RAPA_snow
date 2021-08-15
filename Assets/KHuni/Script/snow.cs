@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class snow : MonoBehaviour
+{
+    //눈덩이 속도
+    public float speed = 6.0f;
+    //눈덩이 사정거리 
+    public float distance = 10.0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        //눈덩이 지속시간
+        float LiveTime = Time.deltaTime * distance;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //총알 날라가는방향, 회전걸었더니 그 방향으로간다 
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+}
