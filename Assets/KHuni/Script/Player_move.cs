@@ -72,7 +72,7 @@ public class Player_move : MonoBehaviour
         {
             GameObject snow = Instantiate(snowFactory);
             snow.transform.position = snowPos.transform.position;
-            Destroy(snow, 10);
+            Destroy(snow, 1.5f);
             animator.SetBool("Run", false);
             animator.SetBool("Attack", true);
             isPlayerClick = false;
@@ -144,7 +144,7 @@ public class Player_move : MonoBehaviour
     {
         print("Die");
         animator.SetTrigger("Die");
-        Destroy(gameObject, 4f); //anmation event 검색해본다
+        Destroy(gameObject, 2f); //anmation event 검색해본다
         //파괴하기
     }
     //#region 연습장
