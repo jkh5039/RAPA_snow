@@ -97,7 +97,7 @@ public class Player_move : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitInfo, 1000, layer1))
             {
-                Vector3 vec = new Vector3(hitInfo.point.x, 3, hitInfo.point.z);
+                Vector3 vec = new Vector3(hitInfo.point.x, 4.88f, hitInfo.point.z);
                 transform.position = vec;
             }
         }
@@ -125,6 +125,7 @@ public class Player_move : MonoBehaviour
         }
         else if (hp == 0)
         {
+            
             Die();
         }
     }

@@ -13,35 +13,15 @@ public class ResultM : MonoBehaviour
     
     void Start()
     {
-        
 
+        SoundManager.instance.PlayBGM(SoundManager.BGM_SOUND_TYPE.BGM_START);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //currTime += Time.deltaTime;
-        //if (currTime > 2.5f)
-        //{
-        //    //itween
-        //    iTween.ScaleTo(StartButton, iTween.Hash(
-        //        "x", 1,
-        //        "y", 2,
-        //        "z", 1,
-        //        "time", 1,
-        //        "easetype", iTween.EaseType.easeInOutBack
-
-        //        ));
-        //    iTween.ScaleTo(StartButton, iTween.Hash(
-        //        "x", 1.2,
-        //        "y", 2.4,
-        //        "z", 1.2,
-        //        "time", 1,
-        //        "delay", 0.5f,
-        //        "easetype", iTween.EaseType.easeInOutBack
-        //        ));
-        //    currTime = 0;
-        //}
+        //SoundManager.instance.PlayBGM(SoundManager.BGM_SOUND_TYPE.BGM_START);
+        //SoundManager.instance.PlayBGM(SoundManager.BGM_SOUND_TYPE.BGM_INGAME);
     }
     public void OnclickStart()
     {

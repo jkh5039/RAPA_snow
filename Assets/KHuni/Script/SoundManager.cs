@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); //scene이 전환되도 파괴되고싶지 않을때 쓴다
+            //DontDestroyOnLoad(gameObject); //scene이 전환되도 파괴되고싶지 않을때 쓴다
         }
         else
         {
@@ -45,7 +45,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         //asBgm = GetComponentInChildren<AudioSource>();
-        PlayBGM(BGM_SOUND_TYPE.BGM_START);
+        //PlayBGM(BGM_SOUND_TYPE.BGM_START);
     }
 
     // Update is called once per frame
