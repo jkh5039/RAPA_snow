@@ -135,6 +135,10 @@ public class EnemyMove : MonoBehaviour
         hit = hit-1;
         if (hit == 0)
         {
+            BoxCollider bc = GetComponent<BoxCollider>();
+            bc.enabled = false;
+            this.enabled = false;
+
             moveStop = false;
             ani.SetTrigger("die");
             SManager.instance.CountFoxDie();

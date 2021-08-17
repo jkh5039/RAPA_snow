@@ -46,6 +46,6 @@ public class ResultM : MonoBehaviour
     public void OnclickStart()
     {
         //GameScene으로 전환한다
-        SceneManager.LoadScene("KH_scene");
+        SceneManager.LoadScene("snebn");
     }
 }

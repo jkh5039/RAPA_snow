@@ -13,8 +13,7 @@ public class Player_move : MonoBehaviour
     public float timer;
     public Animator animator;
 
-    //Camera  게임오브젝트
-    public GameObject camObj;
+   
     //Camera 컴포넌트
     Camera cam;
     //충돌하고 싶지않은 Layer
@@ -67,6 +66,7 @@ public class Player_move : MonoBehaviour
                 //isPlayerClick = true;
                 //animator.SetBool("Run", true);
                 //isPlayerClick = true;
+
                 Player_move pm = hitInfo.transform.GetComponent<Player_move>();
                 pm.isPlayerClick = true;
                 pm.animator.SetBool("Run", true);
@@ -97,7 +97,7 @@ public class Player_move : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitInfo, 1000, layer1))
             {
-                Vector3 vec = new Vector3(hitInfo.point.x, hitInfo.point.y + 1.7f, hitInfo.point.z);
+                Vector3 vec = new Vector3(hitInfo.point.x, 3, hitInfo.point.z);
                 transform.position = vec;
             }
         }

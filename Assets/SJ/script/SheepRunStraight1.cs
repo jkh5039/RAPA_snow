@@ -21,7 +21,7 @@ public class SheepRunStraight1 : MonoBehaviour
         gameObject.transform.localPosition += transform.forward * speed * Time.deltaTime;
         if(curruntime<roTime)
         {
-        gameObject.transform.rotation = Quaternion.AngleAxis(ro,Vector3.up)*transform.rotation;
+            gameObject.transform.rotation = Quaternion.AngleAxis(ro *Time.deltaTime ,Vector3.up)*transform.rotation;
         }
         if (curruntime > 8)
         {

@@ -21,4 +21,12 @@ public class snow : MonoBehaviour
         //총알 날라가는방향, 회전걸었더니 그 방향으로간다 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name.Contains("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
