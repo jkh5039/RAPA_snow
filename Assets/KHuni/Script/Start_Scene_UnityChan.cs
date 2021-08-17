@@ -7,11 +7,8 @@ public class Start_Scene_UnityChan : MonoBehaviour
     public float speed = 5.0f;
     public Animator animator;
     float currTime = 0.0f;
-    float turnTIme = 3.0f;
-    float turnTime2 = 6.0f;
-    float turnTime3 = 9.0f;
-    float turnTime4 = 12.0f;
-    float[] turnTimes = { 3, 1, 2, 5 };
+    
+    float[] turnTimes = { 9,3,11 };
     int timeIdx = 0;
 
     public Transform[] points;
