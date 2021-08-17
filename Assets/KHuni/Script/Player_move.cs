@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_move : MonoBehaviour
 {
@@ -27,7 +28,9 @@ public class Player_move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //SoundManager.instance.PlayBGM(SoundManager.BGM_SOUND_TYPE.BGM_INGAME);
         cam = Camera.main;
+        HpDamage(0);
         //int hp = 2;
     }
     float currTime = 0f;
@@ -37,6 +40,9 @@ public class Player_move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameM.instance.state == GameM.GAME_STATE.Ready)
+            return;
+
         if (isStun)   //새로적은거
         {
             stunTimer += Time.deltaTime;
@@ -102,12 +108,14 @@ public class Player_move : MonoBehaviour
     //    timer = 0f;
     //    isStun = false;
     //}
+    public Text LifeUI;
 
     void HpDamage(int amount)
     {
         animator.SetBool("Run", false);
 
         hp -= amount;
+        LifeUI.text = "Life : " + hp;
         print("Damage Hp : " + hp);
 
         if (hp == 1)

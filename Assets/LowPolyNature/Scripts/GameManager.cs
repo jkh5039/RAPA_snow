@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour {
  
     }
 
+    //private void Start()
+    //{
+    //    SoundManager.instance.PlayBGM(SoundManager.BGM_SOUND_TYPE.BGM_INGAME);
+    //}
+
     public PlayerController Player;
     
 }
