@@ -6,11 +6,10 @@ public class Snow : MonoBehaviour
 {
     //눈덩이가 날아가는 속도
     public float speed;
-    
+    public GameObject boom;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -25,8 +24,11 @@ public class Snow : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        GameObject boomBoom = Instantiate(boom);
+        boomBoom.transform.position = gameObject.transform.position;
         Destroy(gameObject);
         //상대방의 체력을 닳게 한다.(상대방 피코드가 필요)
+        
     }
 
 }

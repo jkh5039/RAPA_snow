@@ -64,7 +64,10 @@ public class EnemyMove : MonoBehaviour
                 //애니메이션을 atteck으로 변경
                 if (isMove)
                 {
-                    enemyFire.Shoot();
+                    if (hit != 0)
+                    {
+                        enemyFire.Shoot();
+                    }
                     ani.SetTrigger("atteck");
 
                 }
@@ -132,8 +135,9 @@ public class EnemyMove : MonoBehaviour
         hit = hit-1;
         if (hit == 0)
         {
-            isHit = true;
+            moveStop = false;
             ani.SetTrigger("die");
+            SManager.instance.CountFoxDie();
         }
         isHit = true;
         timer = 0;

@@ -146,6 +146,7 @@ public class Player_move : MonoBehaviour
         print("Die");
         animator.SetTrigger("Die");
         Destroy(gameObject, 2f); //anmation event 검색해본다
+        SManager.instance.CountPlayerDie();
         //파괴하기
     }
     //#region 연습장
